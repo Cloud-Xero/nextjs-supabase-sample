@@ -1,6 +1,19 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { Auth } from "@supabase/ui";
+import type { AppProps } from "next/app";
+import { AuthLayout } from "@/layout/AuthLayout";
+import { client } from "@/libs/supabase";
+import "@/styles/globals.css";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  return (
+    <div>
+      <Auth.UserContextProvider supabaseClient={client}>
+        <AuthLayout>
+          <Component {...pageProps} />
+        </AuthLayout>
+      </Auth.UserContextProvider>
+    </div>
+  );
+};
+
+export default MyApp;
