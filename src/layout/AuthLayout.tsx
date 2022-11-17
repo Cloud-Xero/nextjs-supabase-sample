@@ -1,9 +1,9 @@
 import { Auth, Button, IconLogOut } from "@supabase/ui";
 
-import { Header } from "@/components/Header";
-import { LayoutErrorBoundary } from "@/layout/LayoutErrorBoundary";
-import { client } from "@/libs/supabase";
-import { Footer } from "@/components/Footer";
+import { Header } from "@this/components/Header";
+import { LayoutErrorBoundary } from "@this/layout/LayoutErrorBoundary";
+import { client } from "@this/libs/supabase";
+import { Footer } from "@this/components/Footer";
 
 type Props = {
   children: React.ReactNode;
@@ -32,8 +32,8 @@ export const AuthLayout = (props: Props) => {
                 </div>
               </div>
             ) : (
-              <div className="flex justify-center pt-8">
-                <div className="w-full sm:w-96">
+              <div className="justify-center pt-8">
+                <div className="w-full">
                   <Auth
                     supabaseClient={client}
                     providers={["github"]}
